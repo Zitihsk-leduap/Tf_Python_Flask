@@ -1,7 +1,7 @@
 variable "bucket_name" {
   type        = string
   description = "Remote state bucket name"
-  default     = "dev_proj_1_remote_state_bucket"
+  default     = "kshitiz-remote-state-bucket"
 }
 
 variable "name" {
