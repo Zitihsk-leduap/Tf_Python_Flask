@@ -15,6 +15,9 @@ module "networking" {
     # cidr_public_subnet = var.cidr_public_subnet
     # availability_zone = var.availability_zone
     # cidr_private_subnet = var.cidr_private_subnet
+    cidr_public_subnet = var.cidr_public_subnet
+    cidr_private_subnet = var.cidr_private_subnet
+    availability_zone = var.availability_zone
     
   
 }
