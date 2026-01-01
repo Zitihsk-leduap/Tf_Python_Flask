@@ -45,3 +45,12 @@ tags = {
 }
 }
 
+#placing the igw for the vpc
+
+
+resource "aws_internet_gateway" "dev_project_1_igw" {
+vpc_id = aws_vpc.dev_proj_1_eu_central_1.id
+tags = {
+    Name: "dev-project-1-igw"
+}
+}
