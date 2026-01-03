@@ -49,3 +49,17 @@ variable "availability_zone"{
   description = "AZs"
   default = ["eu-central-1a","eu-central-1b"]
 }
+
+variable "public_key" {
+  type = string
+  description = "Public key for the ec2 instance"
+  default="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOrF5t7JpwLdGxYruT8c+oIVhY5+KIS+zE6IMvwhNlPc kshitiz@server"
+
+  
+}
+
+variable "ec2_ami_id"{
+  type = string
+  description = "AMI Id for the EC2 instance"
+  default = "ami-004e960cde33f9146"
+}
