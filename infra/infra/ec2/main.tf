@@ -9,10 +9,6 @@ variable "user_data_install_apache"{}
 variable "ec2_sg_name_for_python_api"{}
 
 
-output "dev_proj_1_ec2_instance_id" {
-    value = aws_instance.ec2_instance_devops_1.id
-}
-
 resource "aws_instance" "ec2_instance_devops_1" {
     ami = var.ami_id
     instance_type = var.instance_type
