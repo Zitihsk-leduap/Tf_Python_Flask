@@ -75,3 +75,26 @@ module "alb" {
     lb_target_group_attachment_port = 5000
     
 }
+
+
+module "rds_db" {
+    source = "./rds"
+    db_subnet_group_name = "dev_proj_1_rds_subnet_group"
+    subnet_groups = tolist(module.networking.dev_proj_1_private_subnets)
+    rds_mysql_sg_id = module.security-groups.rds_mysql_sg_id
+    mysql_username = "mydb"
+    mysql_password = "dbpassword"
+    mysql_dbname = "devprojdb"
+    mysql_db_identifier = "mydb"
+
+  
+}
+
+
+module "hosted-zone" {
+
+  source = "./hosted-zone"
+  domain_name = "leduapops.duckdns.org"
+  aws_lb_dns_name = module.alb.aws_lb_dns_name
+  aws_lb_zone_id = module.alb.aws_lb_zone_id
+}

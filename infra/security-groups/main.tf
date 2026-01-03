@@ -9,6 +9,11 @@ output "sg_ec2_sg_ssh_hhtp_id" {
   
 }
 
+
+output "rds_mysql_sg_id" {
+  value = aws_security_group.rds_mysql_sg.id
+  
+}
 output "sg_ec2_for_python_api" {
   value = aws_security_group.ec2_sg_python_api.id
   
@@ -77,4 +82,21 @@ ingress{
 tags = {
   Name = "Sg to allow traffic on port 5000"
 }
+}
+
+
+resource "aws_security_group" "rds_mysql_sg" {
+  name = "rds-sg"
+  description = "Allow access to RDS from the EC2 present in the public subnets"
+  vpc_id = var.vpc_id
+
+
+
+  ingress {
+    from_port = 3306
+    to_port = 3306
+    protocol = "tcp"
+    cidr_blocks = var.public_subnet_cidr_block
+  }
+  
 }
